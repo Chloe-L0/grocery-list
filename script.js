@@ -27,7 +27,7 @@ itemCategoryArr.forEach((i) => {
   itemCategoryInput.innerHTML += `<option> ${i}</option>`;
 });
 
-console.log(itemCategoryInput.innerHTML);
+//handle submit
 
 itemSubmitBtn.addEventListener("click", (e) => {
   e.preventDefault;
@@ -37,7 +37,11 @@ itemSubmitBtn.addEventListener("click", (e) => {
   itemNameInput.innerHTML = "";
   itemCategory.innerHTML = "";
 
-  //
+  // get inputted values
 });
+
+// store list items;
+
+
 
 const submitListItem = function () {};
