@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+
+  #wrapper {
+    h2 {
+    }
+
+    #shopping-list {
+      li {
+        display: flex;
+        .item-quantity {
+        }
+
+        .item-name {
+        }
+
+        .item-category {
+        }
+      }
+    }
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

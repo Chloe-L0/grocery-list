@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <title>Grocery list 🍏</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h2>Grocery list 🍏</h2>
+      <form class="grocery-input">
+        <label for="quantityInput">No.</label>
+        <input
+          type="number"
+          id="quantityInput"
+          name="quantityInput"
+          min="1"
+          max="99"
+        />
+        <label for="nameInput">Item Name</label>
+        <input type="text" name="nameInput" id="nameInput" />
+        <label for="categoryInput">Category</label>
+        <select name="categoryInput" id="categoryInput">
+          <option value="Bakery">Bakery</option>
+        </select>
+        <input type="submit" id="itemSubmit" />
+      </form>
+
+      <ul id="shopping-list">
+        <li class="list-item">
+          <span class="item-quantity">1</span>
+          <p class="item-name">Cupcake</p>
+          <span class="item-category">🍭</span>
+        </li>
+      </ul>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
