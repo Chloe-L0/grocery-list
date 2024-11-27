@@ -3,6 +3,7 @@ let listItem = document.querySelectorAll(".list-item");
 let itemName = document.querySelectorAll("item-name");
 let itemQuantity = document.querySelectorAll("item-quantity");
 let itemCategory = document.querySelectorAll("item-category");
+let toast = document.querySelector(".toast");
 
 let itemQuantityInput = document.getElementById("quantityInput");
 let itemNameInput = document.getElementById("nameInput");
@@ -23,8 +24,8 @@ const itemCategoryArr = [
 
 const groceryItemsArr = [
   `        <li class="list-item">
-          <span class="item-quantity">10</span>
-          <p class="item-name">Cupcake</p>
+          <span class="item-quantity">2</span>
+          <p class="item-name">Cupcakes</p>
           <span class="item-category">Confectionary 🍭</span>
         </li>`,
 ];
@@ -61,7 +62,14 @@ itemSubmitBtn.addEventListener("click", (e, quantity, itemname, category) => {
   category = itemCategoryInput.value;
 
   // handle blank submission
-  if (itemNameInput.value.charAt(0) == "") {
+  if (
+    itemNameInput.value.charAt(0) == " " ||
+    itemNameInput.value.charAt(0) == ""
+  ) {
+    toast.classList.add("toast-reveal");
+    setTimeout(function () {
+      toast.classList.remove('toast-reveal');
+    }, 3000);
   } else {
     pushListItem(quantity, itemname, category);
     populateGroceryListHTML();

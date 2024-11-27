@@ -10,4 +10,55 @@ html {
 
 body {
   height: 100%;
+
+  #wrapper {
+    h2 {
+    }
+
+    #shopping-list {
+      li {
+        display: flex;
+        .item-quantity {
+        }
+
+        .item-name {
+        }
+
+        .item-category {
+        }
+      }
+    }
+  }
+}
+
+.toast {
+  position: absolute;
+  // top: 20px;
+  left: 20px;
+  // display: none;
+  width: 100px;
+  height: 75px;
+  background: red;
+  border-radius: 25px 25px 25px 2px;
+  padding: 8px;
+  text-align: center;
+  box-shadow: 2px 2px 4px 0px rgba(#000, 0.5);
+  transition: 0.3s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  top: -75px;
+  opacity: 1;
+}
+
+@keyframes fadein {
+  0% {top: -75px; opacity: 0;}
+  100% {top: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+  0% {top: 30px; opacity: 1;}
+  100% {top: -75px; opacity: 0;}
+}
+
+.toast-reveal {
+  display: block;
 }
