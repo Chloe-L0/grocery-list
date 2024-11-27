@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -10,14 +12,37 @@ html {
 
 body {
   height: 100%;
+  font-family: "Jost", Arial, serif;
 
   #wrapper {
+    width: 92%;
+    max-width: 990px;
+    margin: 0 auto;
     h2 {
     }
 
+    form {
+      margin: 0 0 50px;
+    }
+
     #shopping-list {
+      border: 2px solid #000;
+
+      margin: 0 auto;
       li {
+        position: relative;
+        cursor: pointer;
         display: flex;
+        line-height: 2;
+        align-items: center;
+        gap: 10px;
+        padding: 0.5em 1em;
+        font-size: 1.2rem;
+
+        &:nth-of-type(even) {
+          background: #ccc;
+        }
+
         .item-quantity {
         }
 
@@ -26,8 +51,33 @@ body {
 
         .item-category {
         }
+
+        .delete-item {
+          font-size: 20px;
+          margin-left: auto;
+
+          &:hover {
+            scale: 1.05;
+          }
+        }
       }
     }
+  }
+}
+
+.strike-through {
+  // text-decoration: line-through;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 1px;
+    width: 98%;
+    margin: 0 auto;
+    background: red;
   }
 }
 
@@ -50,13 +100,25 @@ body {
 }
 
 @keyframes fadein {
-  0% {top: -75px; opacity: 0;}
-  100% {top: 30px; opacity: 1;}
+  0% {
+    top: -75px;
+    opacity: 0;
+  }
+  100% {
+    top: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadeout {
-  0% {top: 30px; opacity: 1;}
-  100% {top: -75px; opacity: 0;}
+  0% {
+    top: 30px;
+    opacity: 1;
+  }
+  100% {
+    top: -75px;
+    opacity: 0;
+  }
 }
 
 .toast-reveal {

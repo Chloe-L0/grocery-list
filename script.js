@@ -27,6 +27,7 @@ const groceryItemsArr = [
           <span class="item-quantity">2</span>
           <p class="item-name">Cupcakes</p>
           <span class="item-category">Confectionary 🍭</span>
+          <span class="delete-item">&#10006;</span>
         </li>`,
 ];
 
@@ -66,17 +67,16 @@ itemSubmitBtn.addEventListener("click", (e, quantity, itemname, category) => {
     itemNameInput.value.charAt(0) == " " ||
     itemNameInput.value.charAt(0) == ""
   ) {
-    toast.classList.add("toast-reveal");
-    setTimeout(function () {
-      toast.classList.remove('toast-reveal');
-    }, 3000);
+    //broken toast!
+    // toast.classList.add("toast-reveal");
+    // setTimeout(function () {
+    //   toast.classList.remove('toast-reveal');
+    // }, 3000);
   } else {
     pushListItem(quantity, itemname, category);
     populateGroceryListHTML();
 
     clearForm();
-
-    console.log(groceryItemsArr);
   }
 });
 
@@ -86,7 +86,16 @@ const pushListItem = (quantity, itemname, category) => {
     `<li class="list-item"> 
         <span class="item-quantity">${quantity}</span> 
         <p class="item-name">${itemname}</p> 
-        <span class="item-category">${category}</span> 
+        <span class="item-category">${category}</span>
+        <span class="delete-item">&#10006;</span>
     </li>`
   );
 };
+
+//check off item -event listener on the shopping list container to keep track of newly added list items
+shoppingListContainer.addEventListener("click", (li) => {
+  if (li.target.classList.contains("list-item") || li.target.parentNo) {
+    li.target.classList.toggle("strike-through");
+  }
+});
+

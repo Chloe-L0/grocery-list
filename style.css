@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +11,53 @@ html {
 
 body {
   height: 100%;
+  font-family: "Jost", Arial, serif;
+}
+body #wrapper {
+  width: 92%;
+  max-width: 990px;
+  margin: 0 auto;
+}
+body #wrapper form {
+  margin: 0 0 50px;
+}
+body #wrapper #shopping-list {
+  border: 2px solid #000;
+  margin: 0 auto;
 }
 body #wrapper #shopping-list li {
+  position: relative;
+  cursor: pointer;
   display: flex;
+  line-height: 2;
+  align-items: center;
+  gap: 10px;
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
 }
+body #wrapper #shopping-list li:nth-of-type(even) {
+  background: #ccc;
+}
+body #wrapper #shopping-list li .delete-item {
+  font-size: 20px;
+  margin-left: auto;
+}
+body #wrapper #shopping-list li .delete-item:hover {
+  scale: 1.05;
+}
+
+.strike-through:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 1px;
+  width: 98%;
+  margin: 0 auto;
+  background: red;
+}
+
 .toast {
   position: absolute;
   left: 20px;
