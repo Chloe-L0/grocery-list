@@ -10,6 +10,7 @@ let itemCategoryInput = document.getElementById("categoryInput");
 let itemSubmitBtn = document.getElementById("itemSubmit");
 
 const itemCategoryArr = [
+  "Misc ❔",
   "Produce 🥦",
   "Meat & Fish 🍗",
   "Bakery 🍞",
@@ -18,30 +19,66 @@ const itemCategoryArr = [
   "Diary 🧀",
   "Frozen ❄",
   "Household 🧹",
-  "Misc ❔",
 ];
 
-//populate grocery categories
+const groceryItemsArr = [
+  `        <li class="list-item">
+          <span class="item-quantity">10</span>
+          <p class="item-name">Cupcake</p>
+          <span class="item-category">Confectionary 🍭</span>
+        </li>`,
+];
 
+//populate grocery list
+const populateGroceryListHTML = () => {
+  shoppingListContainer.innerHTML +=
+    groceryItemsArr[groceryItemsArr.length - 1];
+};
+
+// populate grocery list on page load
+populateGroceryListHTML();
+
+//populate grocery categories for select element
 itemCategoryArr.forEach((i) => {
-  itemCategoryInput.innerHTML += `<option> ${i}</option>`;
+  itemCategoryInput.innerHTML += `<option>${i}</option>`;
 });
 
-//handle submit
+//clear input information
+const clearForm = () => {
+  itemQuantityInput.value = "";
+  itemNameInput.value = "";
+  itemCategory.selectedIndex = -1;
+};
 
-itemSubmitBtn.addEventListener("click", (e) => {
-  e.preventDefault;
+//handle item submit
+itemSubmitBtn.addEventListener("click", (e, quantity, itemname, category) => {
+  e.preventDefault();
 
-  //clear input information
-  itemQuantityInput.innerHTML = "";
-  itemNameInput.innerHTML = "";
-  itemCategory.innerHTML = "";
+  quantity = itemQuantityInput.value;
+  itemname =
+    itemNameInput.value.charAt(0).toUpperCase() +
+    itemNameInput.value.slice(1).toLowerCase();
+  category = itemCategoryInput.value;
 
-  // get inputted values
+  // handle blank submission
+  if (itemNameInput.value.charAt(0) == "") {
+  } else {
+    pushListItem(quantity, itemname, category);
+    populateGroceryListHTML();
+
+    clearForm();
+
+    console.log(groceryItemsArr);
+  }
 });
 
-// store list items;
-
-
-
-const submitListItem = function () {};
+// store list items in array;
+const pushListItem = (quantity, itemname, category) => {
+  groceryItemsArr.push(
+    `<li class="list-item"> 
+        <span class="item-quantity">${quantity}</span> 
+        <p class="item-name">${itemname}</p> 
+        <span class="item-category">${category}</span> 
+    </li>`
+  );
+};
